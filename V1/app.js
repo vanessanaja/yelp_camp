@@ -1,8 +1,19 @@
 const express = require("express");
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res){
-   res.send('landing page will be here shortly'); 
+   res.render('landing'); 
+});
+
+app.get('/campgrounds', function(req, res){
+   var campgrounds = [
+        {name: 'Salmon Creek', image:'https://source.unsplash.com/y8Ngwq34_Ak'},
+        {name: 'Malibu Creek', image:'https://source.unsplash.com/1azAjl8FTnU'},
+        {name: 'Frog Pond', image:'https://source.unsplash.com/eDgUyGu93Yw'}
+       ] 
+        res.render('campgrounds', {campgrounds: campgrounds});
 });
 
 
