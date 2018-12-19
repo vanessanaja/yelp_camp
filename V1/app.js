@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
+var bodyParser = require("body-parser");
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
@@ -14,6 +16,10 @@ app.get('/campgrounds', function(req, res){
         {name: 'Frog Pond', image:'https://source.unsplash.com/eDgUyGu93Yw'}
        ] 
         res.render('campgrounds', {campgrounds: campgrounds});
+});
+
+app.post('/campgrounds', function(req, res){
+    res.send('you hit the posts route');
 });
 
 
