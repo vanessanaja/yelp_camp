@@ -7,6 +7,26 @@ mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
+//SCHEMA setup
+const campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String
+});
+
+const Campground = mongoose.model("Campground", campgroundSchema); 
+
+Campground.create({
+    name: "Salmon Creek", 
+    image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg"
+}, function(err, campground){
+    if(err){
+        console.log(err);
+    } else {
+        console.log("newly created campground");
+        console.log(campground);
+    }
+});
+
 let campgrounds = [
         {name: "Salmon Creek", image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg"},
         {name: "Granite Hill", image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg"},
