@@ -47,8 +47,14 @@ app.post('/campgrounds', function(req, res){
     let name = req.body.name; 
     let image = req.body.image; 
     let newCampground = {name: name, image: image}
-    campgrounds.push(newCampground);
-    res.redirect('/campgrounds');
+    //Create a new campground and save to DB
+    Campground.create(newCampground, function(err, newlyCreatedCampground){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect('/campgrounds');
+        }
+    });
 });
 
 app.get('/campgrounds/new', function(req, res){
