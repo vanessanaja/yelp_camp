@@ -12,23 +12,6 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-//SCHEMA setup
-
-
-// Campground.create({
-//     name: "Granite Hill", 
-//     image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
-//     description: "A great campground"
-// }, function(err, campground){
-//     if(err){
-//         console.log(err);
-//     } else {
-//         console.log("newly created campground");
-//         console.log(campground);
-//     }
-// });
-
-
 app.get('/', function(req, res){
    res.render('landing'); 
 });
