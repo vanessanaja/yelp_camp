@@ -49,10 +49,11 @@ app.get('/campgrounds/new', function(req, res){
 
 app.get('/campgrounds/:id', function(req, res){
     //find campground with provided id
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
        if(err){
            console.log(err);
        } else {
+           console.log("found campground");
            // render show template with that campground
            res.render('show', {campground: foundCampground});
        }
