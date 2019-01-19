@@ -7,7 +7,7 @@ const express = require("express"),
     // User = require(".models/user");
     seedDB = require("./seeds");
     
-    seedDB();
+    // seedDB();
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
