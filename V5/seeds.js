@@ -5,17 +5,17 @@ const data = [
     {
         name: "Malibu Creek",
         image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
-        description: "One of my favorite So Cal campgrounds"
+        description: "Bacon ipsum dolor amet pork loin chicken shoulder, sirloin short ribs frankfurter short loin turkey kevin hamburger flank drumstick. Sausage porchetta meatball ham hock doner bacon burgdoggen. Pork chop ribeye brisket jowl. Ribeye andouille porchetta chuck capicola shankle pork filet mignon bresaola fatback chicken picanha kevin cow. Kevin ground round corned beef rump kielbasa turkey meatball beef ribs. Pancetta pork picanha jerky bresaola prosciutto pig t-bone tenderloin meatball sirloin shankle."
     },
     {
         name: "Kern River",
         image: "https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg",
-        description: "My favorite Central Ca campground"
+        description: "Bacon ipsum dolor amet pork loin chicken shoulder, sirloin short ribs frankfurter short loin turkey kevin hamburger flank drumstick. Sausage porchetta meatball ham hock doner bacon burgdoggen. Pork chop ribeye brisket jowl. Ribeye andouille porchetta chuck capicola shankle pork filet mignon bresaola fatback chicken picanha kevin cow. Kevin ground round corned beef rump kielbasa turkey meatball beef ribs. Pancetta pork picanha jerky bresaola prosciutto pig t-bone tenderloin meatball sirloin shankle."
     },
     {
         name: "Russian River",
         image: "https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg",
-        description: "One of my fave NorCal campgrounds"
+        description: "Bacon ipsum dolor amet pork loin chicken shoulder, sirloin short ribs frankfurter short loin turkey kevin hamburger flank drumstick. Sausage porchetta meatball ham hock doner bacon burgdoggen. Pork chop ribeye brisket jowl. Ribeye andouille porchetta chuck capicola shankle pork filet mignon bresaola fatback chicken picanha kevin cow. Kevin ground round corned beef rump kielbasa turkey meatball beef ribs. Pancetta pork picanha jerky bresaola prosciutto pig t-bone tenderloin meatball sirloin shankle."
     }
 ]
 
