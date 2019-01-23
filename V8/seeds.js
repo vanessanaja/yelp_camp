@@ -34,20 +34,20 @@ function seedDB(){
                 } else {
                     console.log("added a campgrounds");
                     //create a comment
-                    Comment.create(
-                        {
-                            text: "I love this campground. So awesome!!!",
-                            author: "Someone"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                campground.comments.push(comment);
-                                campground.save();
-                                console.log("created new comment");
-                            }
-                        }
-                    );
+                    // Comment.create(
+                    //     {
+                    //         text: "I love this campground. So awesome!!!",
+                    //         author: "Someone"
+                    //     }, function(err, comment){
+                    //         if(err){
+                    //             console.log(err);
+                    //         } else {
+                    //             campground.comments.push(comment);
+                    //             campground.save();
+                    //             console.log("created new comment");
+                    //         }
+                    //     }
+                    // );
                 }
             });
         });
