@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Campground = require("../models/campground");
 
 router.get('/campgrounds', function(req, res){
     // get all campgrounds from db
@@ -16,7 +17,7 @@ router.post('/campgrounds', function(req, res){
     let name = req.body.name; 
     let image = req.body.image; 
     let desc = req.body.description;
-    let newCampground = {name: name, image: image, description: desc}
+    let newCampground = {name: name, image: image, description: desc};
     
     //Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreatedCampground){
@@ -43,7 +44,7 @@ router.get('/campgrounds/:id', function(req, res){
            res.render('campgrounds/show', {campground: foundCampground});
        }
     });
-    req.params.id
+    req.params.id;
 });
 
 module.exports = router;

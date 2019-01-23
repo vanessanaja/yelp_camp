@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const Campground = require("../models/campground.js");
+const Comment = require("../models/comment");
 
 router.get('/campgrounds/:id/comments/new', isLoggedIn, function(req, res){
     //find campground by ID
@@ -33,5 +35,12 @@ router.post('/campgrounds/:id/comments', isLoggedIn, function(req, res){
         }
     });
 });
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
 
 module.exports = router;
