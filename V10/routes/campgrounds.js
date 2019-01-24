@@ -44,11 +44,20 @@ router.get('/:id', function(req, res){
            console.log(err);
        } else {
            console.log("found campground");
-           // render show template with that campground
            res.render('campgrounds/show', {campground: foundCampground});
        }
     });
-    req.params.id;
+});
+    
+router.get('/:id/edit', function(req, res){
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+            res.redirect('/campgrounds');
+        } else {
+           res.render('campgrounds/edit', {campground: foundCampground}); 
+        }
+    });
 });
 
 function isLoggedIn(req, res, next){
