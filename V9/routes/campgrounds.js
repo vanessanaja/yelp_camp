@@ -14,10 +14,14 @@ router.get('/', function(req, res){
 });
 
 router.post('/', isLoggedIn, function(req, res){
-    let name = req.body.name; 
-    let image = req.body.image; 
-    let desc = req.body.description;
-    let newCampground = {name: name, image: image, description: desc};
+    const name = req.body.name; 
+    const image = req.body.image; 
+    const desc = req.body.description;
+    const author = {
+      id: req.user._id,
+      username: req.user.username
+    };
+    const newCampground = {name: name, image: image, description: desc, author: author};
     
     //Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreatedCampground){
