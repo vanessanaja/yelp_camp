@@ -13,7 +13,7 @@ router.get('/', function(req, res){
     });    
 });
 
-router.post('/', function(req, res){
+router.post('/', isLoggedIn, function(req, res){
     let name = req.body.name; 
     let image = req.body.image; 
     let desc = req.body.description;
@@ -29,7 +29,7 @@ router.post('/', function(req, res){
     });
 });
 
-router.get('/new', function(req, res){
+router.get('/new', isLoggedIn, function(req, res){
   res.render('campgrounds/new'); 
 });
 
