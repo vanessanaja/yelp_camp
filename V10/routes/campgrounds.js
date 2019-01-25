@@ -71,6 +71,11 @@ router.put('/:id', function(req, res){
     });
 });
 
+router.delete('/:id', function(req, res){
+//   Campground.findByIdAndRemove(req.params.id, function(err, )) 
+    res.send("deleting campground");
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
