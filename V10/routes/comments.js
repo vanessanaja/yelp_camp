@@ -37,6 +37,18 @@ router.post('/', isLoggedIn, function(req, res){
     });
 });
 
+router.get('/:comment_id/edit', function(req, res){
+    res.send('edit route for comment');
+//   Comment.findById(req.params.comment_id, function(err, foundComment){
+//       if(err){
+//           console.log(err);
+//           res.redirect('/comments/' + comment_id);
+//       } else {
+//           res.render('comments/edit', {comment: founcComment});
+//       }
+//   });  
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
