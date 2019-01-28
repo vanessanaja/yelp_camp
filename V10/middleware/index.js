@@ -1,3 +1,6 @@
+const Campground = require("../models/campground.js");
+const Comment = require("../models/comment.js");
+
 const middlewareObj = {};
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
@@ -43,7 +46,7 @@ middlewareObj.isLoggedIn = function (req, res, next){
         return next();
     }
     res.redirect('/login');
-}
+};
 
 
-module.exports = middlewareObj
+module.exports = middlewareObj;
