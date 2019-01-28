@@ -60,15 +60,14 @@ router.put('/:comment_id', function(req, res){
 });
 
 router.delete('/:comment_id', function(req, res){
-    res.send('delete route');
-    // Comment.findByIdAndRemove(req.params.comment_id, function(err){
-    //   if(err){
-    //       console.log(err);
-    //       res.redirect('back');
-    //   } else {
-    //       res.redirect('/campgrounds/' + req.params.id);
-    //   }
-    // });
+    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+      if(err){
+          console.log(err);
+          res.redirect('back');
+      } else {
+          res.redirect('/campgrounds/' + req.params.id);
+      }
+    });
 });
 
 function isLoggedIn(req, res, next){
