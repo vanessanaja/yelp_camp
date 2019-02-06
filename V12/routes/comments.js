@@ -4,9 +4,9 @@ const Campground = require("../models/campground");
 const Comment = require("../models/comment");
 const middleware = require("../middleware");
 
-router.get('/new', middleware.isLoggedIn, function(req, res){
+router.get('/new', middleware.isLoggedIn, (req, res)=>{
     //find campground by ID
-    Campground.findById(req.params.id, function(err, campground){
+    Campground.findById(req.params.id, (err, campground)=>{
        if(err){
            console.log(err);
        } else {
@@ -15,14 +15,14 @@ router.get('/new', middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.post('/', middleware.isLoggedIn, function(req, res){
+router.post('/', middleware.isLoggedIn, (req, res)=>{
     //lookup campground by id
-    Campground.findById(req.params.id, function(err, campground){
+    Campground.findById(req.params.id, (err, campground)=>{
         if(err){
             console.log(err);
             res.redirect('/campgrounds');
         } else {
-            Comment.create(req.body.comment, function(err, comment){
+            Comment.create(req.body.comment, (err, comment)=>{
                 if(err){
                     console.log(err);
                 } else {
@@ -39,13 +39,13 @@ router.post('/', middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(req, res){
-        Campground.findById(req.params.id, function(err, foundCampground){
+router.get('/:comment_id/edit', middleware.checkCommentOwnership, (req, res)=>{
+        Campground.findById(req.params.id, (err, foundCampground)=>{
            if(err || !foundCampground){
                req.flash('error', 'Can not find that campground');
                return res.redirect('back');
            }
-            Comment.findById(req.params.comment_id, function(err, foundComment){
+            Comment.findById(req.params.comment_id, (err, foundComment)=>{
                 if(err){
                     console.log(err);
                     res.redirect('back');
@@ -56,8 +56,8 @@ router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(req, 
         });
 });
 
-router.put('/:comment_id', middleware.checkCommentOwnership, function(req, res){
-    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+router.put('/:comment_id', middleware.checkCommentOwnership, (req, res)=>{
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment)=>{
         if(err){
             console.log(err);
             res.redirect('back');
@@ -68,8 +68,8 @@ router.put('/:comment_id', middleware.checkCommentOwnership, function(req, res){
     });
 });
 
-router.delete('/:comment_id', middleware.checkCommentOwnership, function(req, res){
-    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+router.delete('/:comment_id', middleware.checkCommentOwnership, (req, res)=>{
+    Comment.findByIdAndRemove(req.params.comment_id, (err)=>{
       if(err){
           console.log(err);
           res.redirect('back');
